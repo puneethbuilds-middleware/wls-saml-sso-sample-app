@@ -1,4 +1,4 @@
-# SAML SSO Diagnostics for WebLogic
+# SAML SSO Diagnostics sample app for WebLogic
 
 ## Build and deploy
 
@@ -7,7 +7,9 @@ mvn clean package
 # Deploy target/saml-sso-diagnostics.war from the WebLogic Administration Console.
 ```
 
-Open `/saml-sso-diagnostics/`, then select **Start SSO test**. Configure your WebLogic SAML integration so `/restricted/*` is protected. The generated `WEB-INF/weblogic.xml` assigns the `sso-user` application role to WebLogic's built-in `users` runtime group, which contains all authenticated users. The protected page prominently displays the authenticated user name.
+Access the application on `http://<wls_hostname>:<wls_port>/saml-sso-diagnostics/`, then select **Start SSO test**. 
+`WEB-INF/weblogic.xml` assigns the `sso-user` application role to WebLogic's built-in `users` runtime group, which contains all authenticated users. 
+The protected page prominently displays the authenticated user name.
 
 ## What it reports
 
@@ -19,10 +21,13 @@ With WebLogic as the SAML service provider, WebLogic consumes and validates the 
 
 ## Compatibility
 
-The project uses Servlet 3.1 / `javax.servlet`, appropriate for conventional WebLogic 12.2.1.x and 14.1.1.x deployments. It has no dependency on a particular identity provider.
+The project uses Servlet 3.1 / `javax.servlet`, appropriate for conventional WebLogic 12.2.1.x and 14.1.x.x deployments. It has no dependency on a particular identity provider.
 
 ## Single Logout
 
-The **Sign out** button initiates WebLogic SAML Single Logout at `/saml2/sp/slo/init`; it does not merely clear the local application session. To use it, configure WebLogic as a SAML Service Provider with SLO enabled, import/configure the IdP's SLO endpoint, and allow the post-logout URL in **Allowed redirect URIs**. For the default context root, allow the full external URL ending in `/saml-sso-diagnostics/`.
+The **Sign out** button initiates WebLogic SAML Single Logout at `/saml2/sp/slo/init`; it does not merely clear the local application session. 
+To use it, configure WebLogic as a SAML Service Provider with SLO enabled, import/configure the IdP's SLO endpoint, and allow the post-logout URL in **Allowed redirect URIs**. 
+For the default context root, allow the full external URL ending in `/saml-sso-diagnostics/`.
 
-Set the `slo.redirect-uri` context parameter in `WEB-INF/web.xml` to that full external URL when the application is behind a reverse proxy or load balancer. Ensure the WebLogic installation is patched with the latest PSU/SPB. SLO works with WebLogic version 12214 and above.
+Set the `slo.redirect-uri` context parameter in `WEB-INF/web.xml` to that full external URL when the application is behind a reverse proxy or load balancer. 
+Ensure the WebLogic installation is patched with the latest PSU/SPB. SLO works with WebLogic version 12214 and above.
