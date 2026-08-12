@@ -15,9 +15,12 @@ Use this WAR to verify a WebLogic Server SAML 2.0 Service Provider integration. 
 mvn clean package
 ```
 
-Deploy `target/saml-sso-diagnostics.war` from the WebLogic Administration Console. The default context root is `/saml-sso-diagnostics/`.
+Deploy `target/saml-sso-diagnostics.war` from the WebLogic Administration Console. 
+
+The default context root is `/saml-sso-diagnostics/`.
 
 Access the application using: 
+
 http://<wls_hostname>:<wls_port>/saml-sso-diagnostics/
 
 Configure your WebLogic SAML integration so `/restricted/*` is protected. 
@@ -25,7 +28,9 @@ Configure your WebLogic SAML integration so `/restricted/*` is protected.
 In WLS console set:
 
 Redirect URI: /restricted/*
+
 or
+
 Redirect URI: /saml-sso-diagnostics/restricted/diagnostics.jsp
 
 
