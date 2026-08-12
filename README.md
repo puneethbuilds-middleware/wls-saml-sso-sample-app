@@ -4,7 +4,7 @@ Use this WAR to verify a WebLogic Server SAML 2.0 Service Provider integration. 
 
 ## Prerequisites
 
-- Oracle WebLogic Server 12.2.1.4 or 14.1.1.x.
+- Oracle WebLogic Server 12.2.1.4 or 14.1.x.x.
 - JDK 8 and Maven 3.6 or later to build the WAR.
 - Access to deploy the application and configure SAML 2.0 federation services in the target WebLogic domain.
 - A configured identity provider and a protected application path (`/restricted/*` by default).
