@@ -17,7 +17,16 @@ mvn clean package
 
 Deploy `target/saml-sso-diagnostics.war` from the WebLogic Administration Console. The default context root is `/saml-sso-diagnostics/`.
 
-Configure your WebLogic SAML integration so `/restricted/*` is protected. The generated `WEB-INF/weblogic.xml` assigns the `sso-user` application role to WebLogic's built-in `users` runtime group, which contains all authenticated users.
+Configure your WebLogic SAML integration so `/restricted/*` is protected. 
+
+In WLS console set:
+
+Redirect URI: /restricted/*
+or
+Redirect URI: /saml-sso-diagnostics/restricted/diagnostics.jsp
+
+
+The generated `WEB-INF/weblogic.xml` assigns the `sso-user` application role to WebLogic's built-in `users` runtime group, which contains all authenticated users.
 
 ## Verify SSO
 
