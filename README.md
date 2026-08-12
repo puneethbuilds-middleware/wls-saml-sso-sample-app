@@ -38,7 +38,7 @@ With WebLogic as the SAML service provider, WebLogic consumes and validates the 
 
 ## Compatibility
 
-The project uses Servlet 3.1 / `javax.servlet`, appropriate for conventional WebLogic 12.2.1.x and 14.1.1.x deployments. It has no dependency on a particular identity provider.
+The project uses Servlet 3.1 / `javax.servlet`, appropriate for conventional WebLogic 12.2.1.x and 14.1.x.x deployments. It has no dependency on a particular identity provider.
 
 ## Single Logout
 
