@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://www.bea.com/ns/weblogic/90"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- These principals may be users or groups defined by the WebLogic security realm. -->
+  <security-role-assignment>
+    <role-name>sso-user</role-name>
+    <!-- WebLogic's built-in runtime group containing all authenticated users. -->
+    <principal-name>users</principal-name>
+  </security-role-assignment>
+</weblogic-web-app>
